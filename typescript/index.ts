@@ -1,24 +1,30 @@
-/* Interface */
-
-// *
-interface Person {
+interface Iw {
     name: string
-    age: number
+    age: boolean
+    city: string | null
 }
 
-// * (Methods)
-
-interface Person {
-    name: string
-    age: number
-    greet(): string
+type IM = Omit<Iw, 'name' | 'age'> & {
+    name: boolean
 }
 
-// * (Inheritance)
-
-interface Student extends Person {
-    id: number
+type Ip = Iw & {
+    lastname: string
 }
+
+interface Iq extends Ip, Iw {
+    as: 'd' | 'a'
+}
+
+let obj: IM = {
+    name: false,
+    // lastname: 'kerim',
+    // age: false,
+    city: 'Canada',
+    // as: 'd'
+}
+
+export { }
 
 
 
